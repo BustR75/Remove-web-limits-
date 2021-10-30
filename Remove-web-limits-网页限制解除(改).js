@@ -47,7 +47,7 @@
     var settingData = {
         "status":1,
         "version" : 0.1,
-        "message" : "啦啦啦,啦啦啦,我是卖报的小行家",
+        "message" : "La-la-la, la-la-la, I'm a little connoisseur of newspapers",
         "positionTop":"0",
         "positionLeft":"0",
         "positionRight":"auto",
@@ -193,7 +193,7 @@
  
     // }
  
-    GM_registerMenuCommand("复制限制解除 设置", setMenu)
+    GM_registerMenuCommand("Copy Restriction Release Setting", setMenu)
     var userSetting = GM_getValue("rwl_userData");
  
     // // ------------------------------函数 func
@@ -249,7 +249,7 @@
         node.style.cssText = "position:fixed;top:"+tempHeight+"px;left:"+rwl_userData.positionLeft+"px;right:"+rwl_userData.positionRight+"px;";
         // node.innerHTML = '<label><input type="checkbox" name="" id="black_node">黑名单</label><qxinbutton id="delete">delete</btton>';
         // node.innerHTML = '<label>限制解除 <input type="checkbox"  name="" id="black_node"></label>';
-        node.innerHTML = '<qxinbutton type="qxinbutton" id="rwl-setbtn"> set </qxinbutton> <lalala style="cursor:move; font-size:12px;">限制解除</lalala> <input type="checkbox" name="" id="black_node" >';
+        node.innerHTML = '<qxinbutton type="qxinbutton" id="rwl-setbtn"> set </qxinbutton> <lalala style="cursor:move; font-size:12px;">Restrictions lifted</lalala> <input type="checkbox" name="" id="black_node" >';
         if(window.self === window.top){
             if (document.querySelector("body")){
                 document.body.appendChild(node);
@@ -399,9 +399,9 @@
                 "}" +
                 " ")
             var innerH = "" +
-                "<p>距离顶部距离（单位 像素） <input id='positiontop' type='text' value=" + userSetting.positionTop + "></p>" + "" +
+                "<p>Distance from top (in pixels) <input id='positiontop' type='text' value=" + userSetting.positionTop + "></p>" + "" +
                 // "<laberl> <p>允许上传黑名单<input id='uploadchecked'  type='checkbox' " + upload_checked + "></p>" + "</laberl>" +
-                "<p id='rwl-shortcuts' title='快捷键'>快捷键：" +
+                "<p id='rwl-shortcuts' title='Shortcuts'>Shortcuts：" +
                     "<select id='rwl-shortcut'>" +
                         "<option value='off'" + (userSetting.shortcut == 0?"selected":"")  + ">关闭</option>" +
                         "<option value='f1'" + (userSetting.shortcut == 1?"selected":"")  + "> F1 </option>" +
@@ -409,22 +409,22 @@
                         "<option value='ctrlc'" + (userSetting.shortcut == 3?"selected":"")  + ">ctrl + C</option>" +
                     "</select>" +
                 "</p> " +
-                "<laberl> <p>显示按钮<input id='btnchecked'  type='checkbox' " + btnchecked + "> 点击脚本管理扩展可以再次打开设置</p>" + "</laberl>" +
-                "<p>问题反馈地址: <a target='_blank' href='https://github.com/qxinGitHub/Remove-web-limits-'>GitHub(qxin)</a>, <a target='_blank' href='https://greasyfork.org/zh-CN/scripts/28497-remove-web-limits-modified'>GreasyFork(qxin)</a>  </P>" +
-                "<p>项目原作者为 <a target='_blank' href='https://cat7373.github.io/remove-web-limits/'>cat7373</a>, <a target='_blank' href='https://github.com/Cat7373/remove-web-limits'>项目主页</a> </P>" +
-                "<p>能力有限,不能每个网站都能完美</P>" +
-                "<p>如若反馈,务必带上详细网址</P>" +
+                "<laberl> <p>Show button<input id='btnchecked'  type='checkbox' " + btnchecked + "> Click on the Script Management extension to open the settings again</p>" + "</laberl>" +
+                "<p>Question feedback address: <a target='_blank' href='https://github.com/qxinGitHub/Remove-web-limits-'>GitHub(qxin)</a>, <a target='_blank' href='https://greasyfork.org/zh-CN/scripts/28497-remove-web-limits-modified'>GreasyFork(qxin)</a>  </P>" +
+                "<p>The original author of the project is <a target='_blank' href='https://cat7373.github.io/remove-web-limits/'>cat7373</a>, <a target='_blank' href='https://github.com/Cat7373/remove-web-limits'>Project Home</a> </P>" +
+                "<p>Limited ability, not every site can be perfect</P>" +
+                "<p>If you have any feedback, please be sure to bring the detailed website</P>" +
                 "<p>  </P>" +
                 // "<p><s>显示按钮（待添加）</s></p>" +
                 // "<p><s>按钮透明度（待添加）</s></p>" +
                 // "<p><s>快速复制（待添加）</s></p>" +
                 // "<p><s>其他 (待添加）</s></p>" +
-                "<p>数据存储方式为JSON,如若在此修改,注意引号逗号</P>" +
+                "<p>The data storage method is JSON, if modified here, note the quotation marks comma</P>" +
                 "<textarea wrap='off' cols='45' rows='20' style='overflow:auto;border-radius:4px;'>" + JSON.stringify(userSetting.data,false,4) + "</textarea>" + 
                 "<br>" +
-                "<qxinbutton id='rwl-reset'>清空设置</qxinbutton> &nbsp;&nbsp;&nbsp;" +
-                "<qxinbutton id='rwl-setMenuSave'>保存</qxinbutton> &nbsp;&nbsp;&nbsp;" +
-                "<qxinbutton id='rwl-setMenuClose' onclick='this.parentNode.parentNode.removeChild(this.parentNode);' title='如果无法关闭 请刷新界面' >关闭</qxinbutton> &nbsp;&nbsp;&nbsp;" +
+                "<qxinbutton id='rwl-reset'>Clear Settings</qxinbutton> &nbsp;&nbsp;&nbsp;" +
+                "<qxinbutton id='rwl-setMenuSave'>Save</qxinbutton> &nbsp;&nbsp;&nbsp;" +
+                "<qxinbutton id='rwl-setMenuClose' onclick='this.parentNode.parentNode.removeChild(this.parentNode);' title='If you can't close it, please refresh the interface.' >关闭</qxinbutton> &nbsp;&nbsp;&nbsp;" +
                 "<span style='font-size:0.7em;'>--| qxin v4.4.6 2021-06-09 |--</span>" +
                 ""
             "";
